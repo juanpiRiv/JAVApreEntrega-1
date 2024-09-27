@@ -15,6 +15,7 @@ public class InvoiceService {
 
     @Transactional
     public void createInvoice(Invoices invoice) {
-        entityManager.persist(invoice); // Persistir la factura
+        entityManager.persist(invoice); // PERSISTE FACT ))))
+
     }
 }

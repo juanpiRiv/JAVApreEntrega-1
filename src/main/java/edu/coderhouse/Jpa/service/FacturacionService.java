@@ -18,7 +18,7 @@ public class FacturacionService {
     private final LineaService lineaService;
 
     @PersistenceContext
-    private EntityManager entityManager; // Inyecta el EntityManager
+    private EntityManager entityManager;
 
     @Autowired
     public FacturacionService(InvoiceService invoiceService, LineaService lineaService) {
@@ -28,18 +28,17 @@ public class FacturacionService {
 
     @Transactional
     public void crearFacturaConProductos(Invoices invoice, Client client, List<Linea> lineas) {
-        // Asegúrate de que el cliente esté persistido
+        // CLIENT NO ID
         if (client.getId() == null) {
-            entityManager.persist(client); // Persistimos el cliente si no tiene ID
+            entityManager.persist(client);
         }
 
-        invoice.setClient(client);  // Establece el cliente en la factura
-        invoiceService.createInvoice(invoice); // Guarda la factura
+        invoice.setClient(client);
+        invoiceService.createInvoice(invoice);
 
-        // Guardar cada línea asociada a la factura
+        // LINEA
         for (Linea linea : lineas) {
-            linea.setInvoices(invoice);  // Asocia la línea con la factura
-//            lineaService.createLinea(linea);  // Guarda la línea
-        }
+            linea.setInvoices(invoice);  // LINEA=FACTURA
+
     }
 }

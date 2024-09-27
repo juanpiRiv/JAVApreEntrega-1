@@ -26,10 +26,10 @@ public class Linea {
     @JoinColumn(name = "PRODUCTOID", nullable = false)
     private Products products;
 
-    // Constructor vacío
+
     public Linea() {}
 
-    // Constructor con parámetros
+
     public Linea(String descripcion, int cantidad, float precio, Invoices invoices, Products products) {
         this.descripcion = descripcion;
         this.cantidad = cantidad;
@@ -38,7 +38,6 @@ public class Linea {
         this.products = products;
     }
 
-    // Getters y Setters
     public Integer getLineaId() {
         return lineaId;
     }
