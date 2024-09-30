@@ -40,5 +40,6 @@ public class FacturacionService {
         for (Linea linea : lineas) {
             linea.setInvoices(invoice);  // LINEA=FACTURA
 
+        }
     }
 }
